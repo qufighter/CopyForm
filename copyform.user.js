@@ -28,7 +28,9 @@ function(request, sender, sendResponse) {
 
 function appendFrmElms(resp, formElms){
 	for(var f=0,l=formElms.length; f<l; f++){
-		if( formElms[f].type == 'checkbox' ){
+		if( formElms[f].type == 'hidden' ){
+			//skip
+		}else if( formElms[f].type == 'checkbox' ){
 			resp[formElms[f].name] = formElms[f].checked;
 		}else
 			resp[formElms[f].name] = formElms[f].value;
